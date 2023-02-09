@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #777777;
 }
+
 .calc_border {
     margin: auto;
     height: 100%;
