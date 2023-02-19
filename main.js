@@ -103,40 +103,8 @@ function displayNumberSize () {
     }
 }
 
-function formatNumber(number) {
-    const numberString = number.toString();
 
-    // const [p, a] = numberString.split('.');
-
-    const arr = numberString.split('.');
-
-    const p = arr[0].split('');
-    const a = arr[1];
-
-    // const withSeparators = p.split('').reduceRight((acc, curr, i, arr) => {
-    //     const index =  i;
-
-    //     if (index % 3 === 0 && index !== 0) {
-    //         return acc + curr + ' ';
-    //     };
-
-    //     return acc + curr;
-    // }, '');
-
-    let withSeparators = '';
-
-    for (let i = p.length - 1; i >= 0; i--) {
-        if (i % 3 === 0 && i !== 0) {
-            withSeparators = ' ' + p[i] + withSeparators;
-        } else {
-            withSeparators = p[i] + withSeparators;
-        }
-    }
-
-    return withSeparators + '.' + a;
-}
-
-function formatNumber1 () {
+function numberFormat () {
     
     let splitNumber = current_string.split('.')
 
@@ -157,10 +125,6 @@ function formatNumber1 () {
         }
 
     }
-
-    console.log('c: ', c)
-    console.log('to jest b:'+b)
-
     current_number.innerHTML = c;
     current_show.innerHTML = c;
     current_string = current_string.replace(/\s/g, "")
@@ -168,63 +132,6 @@ function formatNumber1 () {
 
 
 function resultFormat () {
-    /* if (result.includes('.')){ 
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 3 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-3) + ' ' + result.slice(-3)
-        result = result + '.' + a
-    }
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 6 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-7) + ' ' + result.slice(-7)
-        result = result + '.' + a
-    }
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 9 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-11) + ' ' + result.slice(-11)
-        result = result + '.' + a
-    }
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 12 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-15) + ' ' + result.slice(-15)
-        result = result + '.' + a
-    }
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 15 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-19) + ' ' + result.slice(-19)
-        result = result + '.' + a
-    }
-    if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 15 )  {
-        let a = result.slice(result.indexOf('.') + 1, result.length)
-        result = result.slice(0, result.indexOf('.'))
-        result = result.slice(0,-23) + ' ' + result.slice(-23)
-        result = result + '.' + a
-    }
-}else {
-    if(result.length > 3) {
-        result = result.slice(0,-3) + ' ' + result.slice(-3)
-        }
-        if(result.length > 6) {
-            result = result.slice(0,-7) + ' ' + result.slice(-7)
-        }
-        if(result.length > 9) {
-            result = result.slice(0,-11) + ' ' + result.slice(-11)
-        }
-        if(result.length > 12) {
-            result = result.slice(0,-15) + ' ' + result.slice(-15)
-        }
-        if(result.length > 15) {
-            result = result.slice(0,-19) + ' ' + result.slice(-19)
-        }
-        if(result.length > 18) {
-            result = result.slice(0,-23) + ' ' + result.slice(-23)
-        }
-    } */
     let splitNumber = result.split('.')
 
     let a = splitNumber[0].split('');
@@ -250,70 +157,6 @@ function resultFormat () {
     console.log(result + " result")
     result = result.replace(/\s/g, "")
     }
-
-function numberFormat () {
-    if (current_string.includes('.')){ 
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 3 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-3) + ' ' + current_string.slice(-3)
-            current_string = current_string + '.' + a
-        }
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 6 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-7) + ' ' + current_string.slice(-7)
-            current_string = current_string + '.' + a
-        }
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 9 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-11) + ' ' + current_string.slice(-11)
-            current_string = current_string + '.' + a
-        }
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 12 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-15) + ' ' + current_string.slice(-15)
-            current_string = current_string + '.' + a
-        }
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 15 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-19) + ' ' + current_string.slice(-19)
-            current_string = current_string + '.' + a
-        }
-        if(current_string.includes('.') && current_string.slice(0, current_string.indexOf('.')).length > 15 )  {
-            let a = current_string.slice(current_string.indexOf('.') + 1, current_string.length)
-            current_string = current_string.slice(0, current_string.indexOf('.'))
-            current_string = current_string.slice(0,-23) + ' ' + current_string.slice(-23)
-            current_string = current_string + '.' + a
-        }
-        } else {
-        if(current_string.length > 3) {
-            current_string = current_string.slice(0,-3) + ' ' + current_string.slice(-3)
-            }
-            if(current_string.length > 6) {
-                current_string = current_string.slice(0,-7) + ' ' + current_string.slice(-7)
-            }
-            if(current_string.length > 9) {
-                current_string = current_string.slice(0,-11) + ' ' + current_string.slice(-11)
-            }
-            if(current_string.length > 12) {
-                current_string = current_string.slice(0,-15) + ' ' + current_string.slice(-15)
-            }
-            if(current_string.length > 15) {
-                current_string = current_string.slice(0,-19) + ' ' + current_string.slice(-19)
-            }
-            if(current_string.length > 18) {
-                current_string = current_string.slice(0,-23) + ' ' + current_string.slice(-23)
-            }}
-            current_number.innerHTML = current_string
-            current_show.innerHTML = current_string;
-            current_string = current_string.replace(/\s/g, "")
-            
-
-}
 
 function addNumber () {
     block = false;
@@ -356,7 +199,7 @@ function addNumber () {
     
     current_string = current_string + this.textContent;
     console.log(current_string);
-    formatNumber1();
+    numberFormat();
 }
 
 function addDot () { 
@@ -372,7 +215,6 @@ function addDot () {
         return;
     }
     if(current_number.innerHTML === '' && this.textContent === '.') {
-        console.log('pusty')
         current_number.innerHTML += '0'
     }
     current_number.innerHTML += this.textContent;
@@ -409,7 +251,6 @@ function addSign() {
         return;
     } 
     if(current_operation_number != undefined && current_sign != ''  && current_string != '') {
-        console.log('wchodzi')
         dotAndZero();
         calculate();
         if(current_sign != this.textContent) {
@@ -431,7 +272,6 @@ function addSign() {
         console.log(current_string)
     }
     if(current_string === '')return;
-    console.log("reszta sign")
     switchDisplayFront();
     current_string = current_string.replace(/\s/g, "")
     dotAndZero();
@@ -495,7 +335,6 @@ function doFraction () {
         current_string = current_string.toString();
         switchDisplayFront();
         current_show.innerHTML = current_string;
-        console.log('wchodzi')
         displayNumberSize();
         return;
     }
@@ -533,7 +372,6 @@ function doPower() {
         switchDisplayFront();
         current_show.innerHTML = current_string;
         numberFormat();
-        console.log('wchodzi')
         return;
     }
     current_operation.innerHTML = 'sqr( '+current_string+' )'
@@ -577,7 +415,6 @@ function doSqrtRoot() {
         switchDisplayFront();
         current_show.innerHTML = current_string;
         numberFormat();
-        console.log('wchodzi')
         return;
     }
     current_operation.innerHTML = '√( '+current_string+' )'
@@ -761,9 +598,9 @@ function equal () {
     if( current_operation_number === '' && current_string != '0' && !current_operation.innerHTML.includes('=')) {
         current_operation.innerHTML = current_string + ' =';
         current_string = '';
+        current_number.innerHTML = '';
         switchDisplayFront ();
         block = true;
-        console.log('tutaj')
         return;
     }
     
@@ -777,7 +614,6 @@ function equal () {
     resultFormat();
     switchDisplayFront ();
     current_number.innerHTML = '';
-    console.log('wchodzi')
     return;
     }
     if(current_string != '' && current_operation_number === '' && current_show.innerHTML != '') {
@@ -785,7 +621,6 @@ function equal () {
         numberFormat();
         return;
     }
-    console.log('nie wchodzi')
     dotAndZero();
     calculate(); 
     current_operation.innerHTML = current_operation_number + ' ' + current_sign + ' ' + current_string + " =";
