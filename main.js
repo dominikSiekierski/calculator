@@ -136,8 +136,39 @@ function formatNumber(number) {
     return withSeparators + '.' + a;
 }
 
+function formatNumber1 () {
+    
+    let splitNumber = current_string.split('.')
+
+    let a = splitNumber[0].split('');
+    let b = splitNumber[1];
+    let c = '';
+    let t = '';
+    if(current_number.innerHTML.includes('.')) {
+        c = c + '.'+ b
+    }
+    for(let i = a.length-1; i >=0; i--) {
+        endIndex = (a.length - 1) -i;
+
+        if(endIndex % 3 === 0 && endIndex != 0) {
+            c = a[i] + ' ' + c;
+        } else {
+            c = a[i] + c;
+        }
+
+    }
+
+    console.log('c: ', c)
+    console.log('to jest b:'+b)
+
+    current_number.innerHTML = c;
+    current_show.innerHTML = c;
+    current_string = current_string.replace(/\s/g, "")
+}
+
+
 function resultFormat () {
-    if (result.includes('.')){ 
+    /* if (result.includes('.')){ 
     if(result.includes('.') && result.slice(0, result.indexOf('.')).length > 3 )  {
         let a = result.slice(result.indexOf('.') + 1, result.length)
         result = result.slice(0, result.indexOf('.'))
@@ -193,7 +224,27 @@ function resultFormat () {
         if(result.length > 18) {
             result = result.slice(0,-23) + ' ' + result.slice(-23)
         }
+    } */
+    let splitNumber = result.split('.')
+
+    let a = splitNumber[0].split('');
+    let b = splitNumber[1];
+    let c = '';
+    let t = '';
+    if(current_number.innerHTML.includes('.')) {
+        c = c + '.'+ b
     }
+    for(let i = a.length-1; i >=0; i--) {
+        endIndex = (a.length - 1) -i;
+
+        if(endIndex % 3 === 0 && endIndex != 0) {
+            c = a[i] + ' ' + c;
+        } else {
+            c = a[i] + c;
+        }
+
+    }
+    result = c
     current_number.innerHTML = result;
     current_show.innerHTML = result;
     console.log(result + " result")
@@ -302,9 +353,10 @@ function addNumber () {
         current_operation_number = '';
         current_string = '';
     }
-    current_string += this.textContent;
-    numberFormat();
-    console.log(current_show)
+    
+    current_string = current_string + this.textContent;
+    console.log(current_string);
+    formatNumber1();
 }
 
 function addDot () { 
