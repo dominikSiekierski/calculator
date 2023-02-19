@@ -48,7 +48,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
-    background-color: red;
+    background-color: #999999;
     overflow: hidden;
 }
 .calc_btns {
